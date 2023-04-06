@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:it_book/src/screen/mypage/profile/profile_setting.dart';
 
 import '../../widget/profile.dart';
 import '../../widget/ranting_book.dart';
@@ -32,7 +34,11 @@ class MyPage extends StatelessWidget {
                   ),
                 ],
               ),
-              ElevatedButton(onPressed: () {}, child: Text('프로필 보기')),
+              ElevatedButton(
+                  onPressed: () {
+                    Get.to(() => const ProfileSetting());
+                  },
+                  child: Text('프로필 설정')),
             ],
           ),
         ),
@@ -112,6 +118,8 @@ class MyPage extends StatelessWidget {
               color: Colors.grey[200],
             ),
             buildAccountOption(context, "내가 등록한 도서"),
+            buildAccountOption(context, "최근 본 게시물"),
+            buildAccountOption(context, "참여 중인 스터디 목록"),
             buildAccountOption(context, "찜한 도서"),
             buildAccountOption(context, "내가 작성한 리뷰"),
             buildAccountOption(context, "문의하기"),

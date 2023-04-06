@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
+import 'package:it_book/src/model/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../repository/user_repository.dart';
 
 class UserController extends GetxController {
   final userRepo = Get.put(UserRepository());
+  UserModel? userOne;
 
   Future<String> getToken() async {
     final prefs = await SharedPreferences.getInstance();

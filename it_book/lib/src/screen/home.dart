@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:it_book/src/screen/board/board.dart';
+import 'package:it_book/src/screen/header/setting.dart';
 
 import 'chat/chat.dart';
 import 'header/noti.dart';
@@ -44,7 +45,13 @@ class _HomeState extends State<Home> {
               var createPage = MaterialPageRoute(builder: (c) => Noti());
               Navigator.push(context, createPage);
             },
-            icon: Icon(Icons.notifications_active))
+            icon: Icon(Icons.notifications_active)),
+        IconButton(
+            onPressed: () {
+              var createPage = MaterialPageRoute(builder: (c) => Setting());
+              Navigator.push(context, createPage);
+            },
+            icon: Icon(Icons.settings))
       ],
     );
   }
