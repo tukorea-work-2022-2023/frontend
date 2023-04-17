@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:get/get.dart';
 import 'package:it_book/src/screen/board/board.dart';
 import 'package:it_book/src/screen/header/setting.dart';
 
@@ -19,6 +20,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  var name = Get.arguments;
   late int _currentPageIndex;
 
   void initState() {
@@ -31,7 +33,7 @@ class _HomeState extends State<Home> {
       automaticallyImplyLeading: false,
       centerTitle: false,
       title: Text(
-        "  IT-Book",
+        name,
       ),
       actions: [
         IconButton(

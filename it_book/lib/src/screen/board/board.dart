@@ -3,7 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:it_book/src/screen/board/item2.dart';
 
-import 'add/book_write.dart';
+import 'add/how_to_write.dart';
 import 'item.dart';
 
 class Board extends StatelessWidget {
@@ -14,7 +14,7 @@ class Board extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          var createPage = MaterialPageRoute(builder: (c) => BookWrite());
+          var createPage = MaterialPageRoute(builder: (c) => HowToWrite());
           Navigator.push(context, createPage);
         },
         child: Icon(Icons.add),

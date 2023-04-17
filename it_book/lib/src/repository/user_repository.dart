@@ -14,26 +14,33 @@ class UserRepository extends GetConnect {
     super.onInit();
   }
 
-  Future<Map> register(String name, String email, String password) async {
+//Map을 dynamic으로
+  Future<Map> register(
+      String name, String email, String password, String password2) async {
     Response response = await post(
-      "/api/user/register",
+      //여기 아래 줄 주소 변경
+      "account/signup/",
       {
-        'name': name,
+        'username': name,
         'email': email,
         'password': password,
+        'password2': password2,
       },
     );
+    print(response.body);
     return response.body;
   }
 
-  Future<Map> login(String email, String password) async {
+  Future<Map> login(String name, String password) async {
     Response response = await post(
-      "/api/user/login",
+      "account/signin/",
       {
-        'email': email,
+        'username': name,
         'password': password,
       },
     );
+    print("리포");
+    print(response.body);
     return response.body;
   }
 }

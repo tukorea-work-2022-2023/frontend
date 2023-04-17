@@ -2,6 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:get/get.dart';
+
+import 'setting/account_set.dart';
+import 'setting/announcement.dart';
+import 'setting/bankAccount_set.dart';
+import 'setting/block_user_set.dart';
+import 'setting/change_passwd.dart';
+import 'setting/keyword_set.dart';
+import 'setting/language_set.dart';
 
 class Setting extends StatefulWidget {
   const Setting({super.key});
@@ -150,7 +159,11 @@ class _SettingState extends State<Setting> {
           child: CupertinoSwitch(
             activeColor: Colors.black,
             value: isActive,
-            onChanged: (bool val) {},
+            onChanged: (bool value) {
+              setState(() {
+                isActive = value;
+              });
+            },
           ),
         )
       ],
@@ -187,18 +200,25 @@ class _SettingState extends State<Setting> {
 
   void navigateToPageBasedOnCondition(int condition) {
     if (condition == 1) {
+      Get.to(() => AccountSet());
       print(1);
     } else if (condition == 2) {
+      Get.to(() => BlockUserSet());
       print(2);
     } else if (condition == 3) {
+      Get.to(() => ChangePasswd());
       print(3);
     } else if (condition == 4) {
+      Get.to(() => BankAccountSet());
       print(4);
     } else if (condition == 5) {
+      Get.to(() => KeywordSet());
       print(5);
     } else if (condition == 6) {
+      Get.to(() => Announce());
       print(6);
     } else if (condition == 7) {
+      Get.to(() => LanguageSet());
       print(7);
     }
   }

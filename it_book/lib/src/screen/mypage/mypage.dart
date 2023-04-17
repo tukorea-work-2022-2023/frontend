@@ -6,6 +6,7 @@ import 'package:it_book/src/screen/mypage/profile/profile_setting.dart';
 
 import '../../widget/profile.dart';
 import '../../widget/ranting_book.dart';
+import 'rentaling/all_rental_list.dart';
 
 class MyPage extends StatelessWidget {
   const MyPage({super.key});
@@ -62,7 +63,9 @@ class MyPage extends StatelessWidget {
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => AllRentalList());
+                  },
                   child: Text("전체 보기",
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.w600)))

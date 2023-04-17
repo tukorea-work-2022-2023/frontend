@@ -10,6 +10,7 @@ final userController = Get.put(UserController());
 
 class Register extends StatefulWidget {
   const Register({super.key});
+  // const Register({Key? key}) : super(key: key);
 
   @override
   State<Register> createState() => _RegisterState();
@@ -20,13 +21,17 @@ class _RegisterState extends State<Register> {
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _password2Controller = TextEditingController();
 
   void submit() async {
     if (_formKey.currentState!.validate()) {
       String name = _nameController.text;
       String email = _emailController.text;
       String password = _passwordController.text;
-      String? message = await userController.register(name, email, password);
+      String password2 = _password2Controller.text;
+      String? message =
+          await userController.register(name, email, password, password2);
+
       if (message == null) {
         Get.off(() => const Login());
       } else {
@@ -49,6 +54,7 @@ class _RegisterState extends State<Register> {
     return Scaffold(
       appBar: _appbarWidget(),
       body: Form(
+        key: _formKey,
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 30),
           child: Form(
@@ -133,25 +139,25 @@ class _RegisterState extends State<Register> {
               SizedBox(
                 height: 40,
               ),
-              // Row(
-              //   children: [
-              //     Text(
-              //       '비밀번호 확인',
-              //       style: TextStyle(fontSize: 20),
-              //     ),
-              //   ],
-              // ),
-              // TextFormField(
-              //   controller: _passwordController,
-              //   obscureText: true,
-              //   decoration: InputDecoration(hintText: '비밀번호를 다시 한번 입력해주세요'),
-              //   validator: (value) {
-              //     if (value == null || value!.trim().isEmpty) {
-              //       return "비밀번호를 입력해주세요";
-              //     }
-              //     return null;
-              //   },
-              // ),
+              Row(
+                children: [
+                  Text(
+                    '비밀번호 확인',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ],
+              ),
+              TextFormField(
+                controller: _password2Controller,
+                obscureText: true,
+                decoration: InputDecoration(hintText: '비밀번호를 다시 한번 입력해주세요'),
+                validator: (value) {
+                  if (value == null || value!.trim().isEmpty) {
+                    return "비밀번호를 입력해주세요";
+                  }
+                  return null;
+                },
+              ),
               SizedBox(
                 height: 40,
               ),

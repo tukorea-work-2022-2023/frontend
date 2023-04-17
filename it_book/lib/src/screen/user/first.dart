@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:get/get.dart';
 import 'package:it_book/src/screen/user/login.dart';
 
 import 'register.dart';
@@ -48,8 +49,7 @@ class First extends StatelessWidget {
                     minimumSize: Size.fromHeight(50),
                   ),
                   onPressed: () {
-                    var createPage = MaterialPageRoute(builder: (c) => Login());
-                    Navigator.push(context, createPage);
+                    Get.to(() => const Login());
                   },
                   child: Text('시작하기')),
             ],

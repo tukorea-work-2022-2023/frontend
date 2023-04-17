@@ -1,3 +1,3 @@
 class Global {
-  static const String API_ROOT = "http://localhost";
+  static const String API_ROOT = "http://";
 }
