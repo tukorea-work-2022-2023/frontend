@@ -26,10 +26,9 @@ class _BookWriteState extends State<BookWrite> {
 
     try {
       final response = await http.get(
-        Uri.parse(
-            'http://58.127.47.87:8080/home/barcode_bookInfo/?ItemId=$isbn'),
+        Uri.parse('http://주소/home/barcode_bookInfo/?ItemId=$isbn'),
         headers: {
-          'Authorization': 'Token 71fedd33d994131004e7c597e658a1ab415bbc15'
+          'Authorization': 'Token 토큰값넣어야함' //토큰값 받아오는거 수정 & 컨트롤러와 리포로 변경해야할듯
         },
       );
       if (response.statusCode == 200) {
