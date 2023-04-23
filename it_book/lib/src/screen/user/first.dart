@@ -49,7 +49,7 @@ class First extends StatelessWidget {
                     minimumSize: Size.fromHeight(50),
                   ),
                   onPressed: () {
-                    Get.to(() => const Login());
+                    Get.off(() => const Login());
                   },
                   child: Text('시작하기')),
             ],

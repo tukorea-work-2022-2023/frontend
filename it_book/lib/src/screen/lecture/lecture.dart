@@ -47,7 +47,7 @@ class _LectureState extends State<Lecture> {
             ),
             Container(
               width: 400,
-              height: 630,
+              height: 500,
               child: Column(
                 children: [
                   SizedBox(

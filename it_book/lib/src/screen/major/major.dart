@@ -51,7 +51,7 @@ class _MajorState extends State<Major> {
                 Container(
                   color: Colors.blue,
                   alignment: Alignment.center,
-                  width: 100,
+                  width: 80,
                   height: 50,
                   child: TextButton(
                       onPressed: () {},
@@ -87,7 +87,7 @@ class _MajorState extends State<Major> {
                 Container(
                   color: Colors.blue,
                   alignment: Alignment.center,
-                  width: 100,
+                  width: 80,
                   height: 50,
                   child: TextButton(
                       onPressed: () {},

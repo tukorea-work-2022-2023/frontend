@@ -94,7 +94,7 @@ class _HowToWriteState extends State<HowToWrite> {
             SizedBox(
               height: 40,
             ),
-            Text('스캔 결과 : $_scanBarcode\n', style: TextStyle(fontSize: 20))
+            // Text('스캔 결과 : $_scanBarcode\n', style: TextStyle(fontSize: 20))
           ],
         ),
       ),

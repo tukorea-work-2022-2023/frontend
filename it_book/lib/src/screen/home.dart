@@ -20,42 +20,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  var name = Get.arguments;
+  static var namea = Get.arguments;
+  // final String namea = Get.arguments;
+
   late int _currentPageIndex;
 
   void initState() {
     super.initState();
     _currentPageIndex = 2;
-  }
-
-  PreferredSizeWidget _appbarWidget() {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      centerTitle: false,
-      title: Text(
-        name,
-      ),
-      actions: [
-        IconButton(
-            onPressed: () {
-              var createPage = MaterialPageRoute(builder: (c) => Search());
-              Navigator.push(context, createPage);
-            },
-            icon: Icon(Icons.search)),
-        IconButton(
-            onPressed: () {
-              var createPage = MaterialPageRoute(builder: (c) => Noti());
-              Navigator.push(context, createPage);
-            },
-            icon: Icon(Icons.notifications_active)),
-        IconButton(
-            onPressed: () {
-              var createPage = MaterialPageRoute(builder: (c) => Setting());
-              Navigator.push(context, createPage);
-            },
-            icon: Icon(Icons.settings))
-      ],
-    );
   }
 
   final List<Widget> _widgetOptions = <Widget>[
@@ -64,9 +36,12 @@ class _HomeState extends State<Home> {
     Board(),
     Chat(),
     MyPage(),
-  ];
+  ]; // 5개의 페이지를 연결할 예정이므로 5개의 페이지를 여기서 지정해준다. 탭 레이아웃은 5개.
 
   void _onItemTapped(int index) {
+    // 탭을 클릭했을때 지정한 페이지로 이동
+    print(index);
+    print(namea);
     setState(() {
       _currentPageIndex = index;
     });
@@ -75,13 +50,8 @@ class _HomeState extends State<Home> {
   Widget _bottomNavigationBarwidget() {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      onTap: (int index) {
-        print(index);
-        setState(() {
-          _currentPageIndex = index;
-        });
-      },
-      currentIndex: _currentPageIndex,
+      onTap: _onItemTapped,
+      currentIndex: _currentPageIndex, // 지정 인덱스로 이동
       selectedFontSize: 12,
       items: [
         BottomNavigationBarItem(
@@ -121,11 +91,79 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appbarWidget(),
+      appBar: _buildAppBar(),
       body: SafeArea(
         child: _widgetOptions.elementAt(_currentPageIndex),
       ),
       bottomNavigationBar: _bottomNavigationBarwidget(),
     );
+  }
+
+  AppBar _buildAppBar() {
+    switch (_currentPageIndex) {
+      case 0:
+        return AppBar(
+            title: Text('IT-Book'),
+            automaticallyImplyLeading: false,
+            centerTitle: false,
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    var createPage =
+                        MaterialPageRoute(builder: (c) => Search());
+                    Navigator.push(context, createPage);
+                  },
+                  icon: Icon(Icons.search)),
+            ]);
+      case 1:
+        return AppBar(
+          title: Text('IT-Book'),
+          automaticallyImplyLeading: false,
+          centerTitle: false,
+        );
+      case 2:
+        return AppBar(
+          title: Text('IT-Book'),
+          automaticallyImplyLeading: false,
+          centerTitle: false,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  var createPage = MaterialPageRoute(builder: (c) => Search());
+                  Navigator.push(context, createPage);
+                },
+                icon: Icon(Icons.search)),
+            IconButton(
+                onPressed: () {
+                  Get.to(() => const Noti());
+                },
+                icon: Icon(Icons.notifications_active)),
+          ],
+        );
+      case 3:
+        return AppBar(
+          centerTitle: false,
+          title: Text('IT-Book'),
+          automaticallyImplyLeading: false,
+        );
+      case 4:
+        return AppBar(
+          title: Text('IT-Book'),
+          automaticallyImplyLeading: false,
+          centerTitle: false,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  var createPage = MaterialPageRoute(builder: (c) => Setting());
+                  Navigator.push(context, createPage);
+                },
+                icon: Icon(Icons.settings))
+          ],
+        );
+      default:
+        return AppBar(
+          title: Text('Unknown'),
+        );
+    }
   }
 }

@@ -9,27 +9,48 @@ class Noti extends StatefulWidget {
   State<Noti> createState() => _NotiState();
 }
 
-class _NotiState extends State<Noti> {
-  PreferredSizeWidget _appbarWidget() {
-    return AppBar(
-      title: Text(
-        "알림",
-      ),
-      actions: [],
-    );
+class _NotiState extends State<Noti> with TickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appbarWidget(),
-      body: Row(
-        children: [
-          ElevatedButton(onPressed: () {}, child: Text("활동 알림")),
-          SizedBox(
-            width: 10,
+      appBar: AppBar(
+          title: const Text('알림'),
+          bottom: TabBar(
+            controller: _tabController,
+            tabs: const <Widget>[
+              Tab(
+                text: "활동 알림",
+              ),
+              Tab(
+                text: "키워드 알림",
+              ),
+            ],
           ),
-          ElevatedButton(onPressed: () {}, child: Text("키워드 알림")),
+          actions: [
+            TextButton(
+                style: TextButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    textStyle: TextStyle(fontSize: 18)),
+                onPressed: () {},
+                child: Text('편집')),
+          ]),
+      body: TabBarView(
+        controller: _tabController,
+        children: const <Widget>[
+          Center(
+            child: Text("It's cloudy here"),
+          ),
+          Center(
+            child: Text("It's rainy here"),
+          ),
         ],
       ),
     );

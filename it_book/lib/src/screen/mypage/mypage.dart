@@ -10,6 +10,7 @@ import 'rentaling/all_rental_list.dart';
 
 class MyPage extends StatelessWidget {
   const MyPage({super.key});
+  static var namea = Get.arguments;
 
   Widget _information() {
     return Column(
@@ -27,7 +28,7 @@ class MyPage extends StatelessWidget {
                     width: 13,
                   ),
                   Text(
-                    "홍길동",
+                    '${namea}', //$name
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
@@ -37,7 +38,7 @@ class MyPage extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () {
-                    Get.to(() => const ProfileSetting());
+                    Get.to(const ProfileSetting());
                   },
                   child: Text('프로필 설정')),
             ],

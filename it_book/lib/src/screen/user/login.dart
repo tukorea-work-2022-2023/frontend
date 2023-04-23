@@ -122,7 +122,11 @@ class _LoginState extends State<Login> {
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size.fromHeight(50),
                       ),
-                      onPressed: submit, //submit으로 교체
+                      onPressed: submit
+                      // () {
+                      //   Get.to(Home());
+                      // }
+                      , //submit으로 교체
                       child: Text('로그인'))
                 ],
               )),
