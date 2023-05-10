@@ -1,3 +1,3 @@
 class Global {
-  static const String API_ROOT = "http://주소/";
+  static const String API_ROOT = "http://:8080/";
 }

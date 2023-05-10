@@ -11,8 +11,8 @@ class BookProf extends StatelessWidget {
       width: 80,
       height: 100,
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage('assets/doit.png')),
-      ),
+          // image: DecorationImage(image: AssetImage('assets/doit.png')),
+          ),
     );
   }
 }

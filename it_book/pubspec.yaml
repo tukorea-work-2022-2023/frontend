@@ -18,6 +18,7 @@ dependencies:
   http: ^0.13.5
   get: ^4.6.5
   flutter_barcode_scanner: ^2.0.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -33,3 +34,6 @@ flutter:
     - assets/tino.png
     - assets/swift.png
     - assets/user.png
+    - assets/1.png
+    - assets/2.png
+    - assets/3.png

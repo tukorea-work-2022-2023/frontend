@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-import '../board/item2.dart';
 import 'item3.dart';
 
 class Major extends StatefulWidget {

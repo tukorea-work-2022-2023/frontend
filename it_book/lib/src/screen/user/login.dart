@@ -95,7 +95,7 @@ class _LoginState extends State<Login> {
                   ),
                   TextFormField(
                     controller: _emailController,
-                    decoration: InputDecoration(labelText: '아이디(이메일)'),
+                    decoration: InputDecoration(labelText: '아이디'),
                     validator: (String? value) {
                       if (value == null || value!.trim().isEmpty) {
                         return "아이디를 입력해주세요";
@@ -123,7 +123,7 @@ class _LoginState extends State<Login> {
                         minimumSize: Size.fromHeight(50),
                       ),
                       onPressed: submit
-                      // () {
+                      //     () {
                       //   Get.to(Home());
                       // }
                       , //submit으로 교체
